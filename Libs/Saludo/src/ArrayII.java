@@ -19,9 +19,9 @@ public class ArrayII {
         
         String lugar[]=new String[i];
         
-        for(int j=0;j<i;j++){
+        /*for(int j=0;j<i;j++){
             lugar[j] = JOptionPane.showInputDialog("Lugar?");
-        }
+        }*/
         
         for(String nombre:lugar){
             System.out.println("Lugar: "+nombre);

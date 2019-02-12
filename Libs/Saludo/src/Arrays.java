@@ -10,8 +10,13 @@ public class Arrays {
         
         String [] name_array={"luis","judith","marie","cesar","gaby"};
         
-        for(int j=0;j<matriz.length;j++){
+        /*for(int j=0;j<matriz.length;j++){
             System.out.println("valor "+ matriz[j]+" en la posicion: "+j);
+        }*/
+        int f = 0;
+        for(int j:matriz){
+            System.out.println("valor "+ j +" en la posicion: "+f);
+            f++;
         }
         
         int i = 0;
