@@ -27,6 +27,19 @@ public class ArrayIII {
             }
         }
         
+        int i = 0;
+        for(int[]matriz1:matriz){
+            for(int elemento:matriz1){
+                res = 0;
+                res = matriz1[i] * elemento;
+                System.out.println("valor "+matriz1[i]+" * "+elemento+" = " +res);
+                i++;
+                if(i == matriz.length){
+                    i =0;
+                }
+            }
+            
+        }
         
     }
 }
