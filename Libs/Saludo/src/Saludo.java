@@ -3,20 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package saludo;
 
 /**
  *
  * @author luis-linux
  */
 public class Saludo {
-
-    /** 
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
         double valor;
         System.out.println("Hola Luis");
         valor = Math.sqrt(9);
@@ -32,10 +25,5 @@ public class Saludo {
         System.out.println("Hola. "+datoinicial+" "+nombre+" "+datoFilnal);
         System.out.println("sin case es "+ datoone.equals(datotwo));
         System.out.println("con case es "+datoone.equalsIgnoreCase(datotwo));
-        
-        
     }
-    
-
-    
 }
