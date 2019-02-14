@@ -22,5 +22,16 @@ public class usoofpooI {
         objpooi.cambia_largo(4);
         
         System.out.println("Despues de modificar, "+objpooi.dime_largo());
+        
+        objpooi.configura_asiento("si");
+        
+        System.out.println("Despues de consultar, "+objpooi.tipo_asientos());
+        
+        String matriz[] = objpooi.data_completa();
+        
+        for(String elemento:matriz){
+        
+            System.out.println("Data: "+elemento);
+        }
     }
 }
