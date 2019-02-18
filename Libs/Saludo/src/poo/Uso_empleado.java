@@ -14,6 +14,22 @@ public class Uso_empleado {
         objeEmpleado.aumentaSueldo(10.12);
         System.out.println("Sueldo Anterior: "+  objeEmpleado.DameSueldo());
         System.out.println("Fecha: "+  objeEmpleado.DameFecha());
+        
+        //---------------------------------------------------------------------
+        
+        Empleado[] empleados=new Empleado[3];
+                
+        empleados[0]=new Empleado("luis", 85000, 1994, 03, 17);
+        empleados[1]=new Empleado("Marie", 90000, 1995, 11, 18);
+        empleados[2]=new Empleado("gaby", 100000, 1981, 04, 23);
+        
+        for(Empleado elemento:empleados){
+            elemento.aumentaSueldo(15);
+            System.out.println("Nombre: "+elemento.DameNombre()+", Sueldo: "+
+                    elemento.DameSueldo()+". Fecha: "+elemento.DameFecha());
+        }
+        
+
     }
 }
 
@@ -22,7 +38,7 @@ class Empleado{
     public Empleado(String nom, double sue, int anos, int mes, int dia){
         nombre = nom;
         sueldo = sue;
-        GregorianCalendar dateGreG = new GregorianCalendar(anos,mes,dia);
+        GregorianCalendar dateGreG = new GregorianCalendar(anos,mes-1,dia);
         altaContrato = dateGreG.getTime();
     }
     
