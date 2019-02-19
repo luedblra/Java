@@ -23,6 +23,8 @@ public class uso_final {
         System.out.println(trabajador2.dameDatos());
         System.out.println(trabajador3.dameDatos());
         System.out.println(trabajador4.dameDatos());
+        
+        System.out.println(Empleados.DameID());
     }
 }
 
@@ -35,6 +37,10 @@ class Empleados{
     private int Id;
     public static int IdSiguiente=1;
         
+    public static String DameID(){
+        return "El proximo Id sera: "+ IdSiguiente;
+    }
+    
     public Empleados(String nom){
         nombre=nom;
         seccion="Ingeniería";
