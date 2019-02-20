@@ -28,9 +28,11 @@ public class Uso_empleado {
             elemento.aumentaSueldo(15);
             System.out.println("Nombre: "+elemento.DameNombre()+", Sueldo: "+
                     elemento.DameSueldo()+". Fecha: "+elemento.DameFecha());
+            System.out.println(elemento.dameIdSiguiente());       
+
         }
         
-
+        
     }
 }
 
@@ -41,6 +43,14 @@ class Empleado{
         sueldo = sue;
         GregorianCalendar dateGreG = new GregorianCalendar(anos,mes-1,dia);
         altaContrato = dateGreG.getTime();
+        IdSiguiente++;
+        Id=IdSiguiente;
+        
+    }
+    
+    
+    public String dameIdSiguiente(){
+        return "El proximo Id sera: "+IdSiguiente;
     }
     
     public Empleado(String nom){
@@ -67,4 +77,28 @@ class Empleado{
     private String nombre;
     private double sueldo;
     private Date altaContrato;
+    private static int IdSiguiente;
+    private int Id;
+}
+
+
+class Jefatura extends Empleado{
+    
+    private double incentivo;
+    
+    public void estableceIncentivo(double b){
+        incentivo=b;
+    }
+    
+    @Override
+    public double DameSueldo(){
+        double sueldoJefe = super.DameSueldo();
+        return sueldoJefe+incentivo;
+    }
+    
+    public Jefatura(String nom, double sue, int anos, int mes, int dia){
+        super(nom, sue, anos, mes, dia);
+    }
+    
+    
 }
