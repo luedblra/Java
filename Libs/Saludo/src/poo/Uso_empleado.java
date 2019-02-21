@@ -17,21 +17,25 @@ public class Uso_empleado {
         
         //---------------------------------------------------------------------
         
-        Empleado[] empleados=new Empleado[4];
+        Jefatura Jefe=new Jefatura("Antonio", 100000, 2016, 12, 12);
+        Jefe.estableceIncentivo(5000);
+        
+        Empleado[] empleados=new Empleado[5];
                 
         empleados[0]=new Empleado("luis", 85000, 1994, 03, 17);
         empleados[1]=new Empleado("Marie", 90000, 1995, 11, 18);
         empleados[2]=new Empleado("gaby", 100000, 1981, 04, 23);
         empleados[3]=new Empleado("Sebastian D");
+        empleados[4]=Jefe;
         
         for(Empleado elemento:empleados){
             elemento.aumentaSueldo(15);
             System.out.println("Nombre: "+elemento.DameNombre()+", Sueldo: "+
                     elemento.DameSueldo()+". Fecha: "+elemento.DameFecha());
-            System.out.println(elemento.dameIdSiguiente());       
+                   
 
-        }
-        
+        }  
+        System.out.println(Jefe.dameIdSiguiente());
         
     }
 }
@@ -43,9 +47,8 @@ class Empleado{
         sueldo = sue;
         GregorianCalendar dateGreG = new GregorianCalendar(anos,mes-1,dia);
         altaContrato = dateGreG.getTime();
-        IdSiguiente++;
         Id=IdSiguiente;
-        
+        IdSiguiente++;
     }
     
     
@@ -58,7 +61,7 @@ class Empleado{
     }
     
     public String DameNombre(){ //Getter
-        return nombre;
+        return nombre+" Id: "+Id;
     }
     
     public double DameSueldo(){ //Getter
@@ -77,7 +80,7 @@ class Empleado{
     private String nombre;
     private double sueldo;
     private Date altaContrato;
-    private static int IdSiguiente;
+    private static int IdSiguiente ;
     private int Id;
 }
 
