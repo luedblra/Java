@@ -11,7 +11,7 @@ public class Uso_empleado {
     public static void main(String[] args) {
         Empleado objeEmpleado = new Empleado("luis",5000000,2019,03,28);
         System.out.println("Sueldo Anterior: "+  objeEmpleado.DameSueldo());
-        objeEmpleado.aumentaSueldo(10.12);
+        objeEmpleado.aumentaSueldo(10);
         System.out.println("Sueldo Anterior: "+  objeEmpleado.DameSueldo());
         System.out.println("Fecha: "+  objeEmpleado.DameFecha());
         
@@ -20,16 +20,20 @@ public class Uso_empleado {
         Jefatura Jefe=new Jefatura("Antonio", 100000, 2016, 12, 12);
         Jefe.estableceIncentivo(5000);
         
-        Empleado[] empleados=new Empleado[5];
+        Empleado[] empleados=new Empleado[6];
                 
         empleados[0]=new Empleado("luis", 85000, 1994, 03, 17);
         empleados[1]=new Empleado("Marie", 90000, 1995, 11, 18);
         empleados[2]=new Empleado("gaby", 100000, 1981, 04, 23);
         empleados[3]=new Empleado("Sebastian D");
-        empleados[4]=Jefe;
+        empleados[4]=Jefe; //polimorfismo
+        empleados[5]= new Jefatura("abrahan",100000 , 2005, 01, 20);
+        
+        Jefatura refundicion_jefe=(Jefatura) empleados[5];
+        refundicion_jefe.estableceIncentivo(6000);
         
         for(Empleado elemento:empleados){
-            elemento.aumentaSueldo(15);
+            elemento.aumentaSueldo(10);
             System.out.println("Nombre: "+elemento.DameNombre()+", Sueldo: "+
                     elemento.DameSueldo()+". Fecha: "+elemento.DameFecha());
                    
@@ -85,7 +89,7 @@ class Empleado{
 }
 
 
-class Jefatura extends Empleado{
+ class Jefatura extends Empleado{
     
     private double incentivo;
     
