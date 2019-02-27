@@ -5,6 +5,7 @@
  */
 package poo;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 public class Uso_empleado {
@@ -32,6 +33,10 @@ public class Uso_empleado {
         Jefatura refundicion_jefe=(Jefatura) empleados[5];
         refundicion_jefe.estableceIncentivo(6000);
         
+        System.out.println(refundicion_jefe.TomarDecisiones("Dar mas dias de vacaciones a los empleados;"));
+        
+        Arrays.sort(empleados);
+        
         for(Empleado elemento:empleados){
             elemento.aumentaSueldo(10);
             System.out.println("Nombre: "+elemento.DameNombre()+", Sueldo: "+
@@ -44,7 +49,7 @@ public class Uso_empleado {
     }
 }
 
-class Empleado{
+class Empleado implements Comparable{
     
     public Empleado(String nom, double sue, int anos, int mes, int dia){
         nombre = nom;
@@ -55,6 +60,19 @@ class Empleado{
         IdSiguiente++;
     }
     
+    public int compareTo(Object miobje){
+        
+        Empleado castingEmple=(Empleado) miobje;
+        
+        if(this.sueldo<castingEmple.sueldo){
+            return -1;
+        }
+        
+        if(this.sueldo>castingEmple.sueldo){
+            return 1;
+        }
+        return 0;
+    }
     
     public String dameIdSiguiente(){
         return "El proximo Id sera: "+IdSiguiente;
@@ -89,9 +107,14 @@ class Empleado{
 }
 
 
- class Jefatura extends Empleado{
+ class Jefatura extends Empleado implements Jefes{
     
     private double incentivo;
+    
+    public String TomarDecisiones(String decision){
+        
+        return "Un mienmbro de la direccion ha tomado una decision de: "+decision;
+    }
     
     public void estableceIncentivo(double b){
         incentivo=b;
