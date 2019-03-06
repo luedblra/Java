@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package poo;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
 public class Uso_empleado {
+    
     public static void main(String[] args) {
         Empleado objeEmpleado = new Empleado("luis",5000000,2019,03,28);
         System.out.println("Sueldo Anterior: "+  objeEmpleado.DameSueldo());
@@ -34,14 +32,14 @@ public class Uso_empleado {
         refundicion_jefe.estableceIncentivo(6000);
         
         System.out.println(refundicion_jefe.TomarDecisiones("Dar mas dias de vacaciones a los empleados;"));
-        
+        System.out.println("El Jefe: "+refundicion_jefe.DameNombre()+", Tiene un bonus de: "+refundicion_jefe.establece_bonus(3000));
         Arrays.sort(empleados);
         
         for(Empleado elemento:empleados){
             elemento.aumentaSueldo(10);
             System.out.println("Nombre: "+elemento.DameNombre()+", Sueldo: "+
                     elemento.DameSueldo()+". Fecha: "+elemento.DameFecha());
-                   
+            System.out.println("El Empleado: "+elemento.DameNombre()+", Tiene un bonus de: "+elemento.establece_bonus(2000));    
 
         }  
         System.out.println(Jefe.dameIdSiguiente());
@@ -49,7 +47,7 @@ public class Uso_empleado {
     }
 }
 
-class Empleado implements Comparable{
+class Empleado implements Comparable, Trabajadores{
     
     public Empleado(String nom, double sue, int anos, int mes, int dia){
         nombre = nom;
@@ -58,6 +56,11 @@ class Empleado implements Comparable{
         altaContrato = dateGreG.getTime();
         Id=IdSiguiente;
         IdSiguiente++;
+    }
+    
+    public double establece_bonus(double gratificacion){
+        
+        return Trabajadores.bonus_base+gratificacion;
     }
     
     public int compareTo(Object miobje){
@@ -114,6 +117,13 @@ class Empleado implements Comparable{
     public String TomarDecisiones(String decision){
         
         return "Un mienmbro de la direccion ha tomado una decision de: "+decision;
+    }
+    
+    public double establece_bonus(double gratificacion){
+        
+        double prima=2000;
+        
+        return Trabajadores.bonus_base+prima+gratificacion;
     }
     
     public void estableceIncentivo(double b){
